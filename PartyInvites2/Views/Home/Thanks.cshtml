@@ -21,14 +21,18 @@
         try
         {
             WebMail.SmtpServer = "smtp.gmail.com";
-            WebMail.SmtpPort = 465;
+            WebMail.SmtpPort = 587;
             WebMail.EnableSsl = true;
             WebMail.UserName = "thekidbruno@gmail.com";
-            WebMail.Password = "";
+            WebMail.Password = "brunothekid.1";
             WebMail.From = "thekidbruno@gmail.com";
 
-            WebMail.Send("")
+            WebMail.Send(Model.Email, "RSVP Notification", Model.Name + "is" + ((Model.WillAttend ?? false) ? "" : "not")
+                                                                    + "attending");
         }
+        catch(Exception) { 
+            @:<b>Sorry - we couldn't send the email to confirm your RSVP.</b> 
+            }
     }
     <div class="text-center"> 
         <h1>Thank you, @Model.Name!</h1>
@@ -40,6 +44,7 @@
             else
             { @: Sorry to thear that you can't make it, but thanks for letting us know anyway or not!.
         }
+            
         </div>
     </div>
 </body>
