@@ -27,7 +27,7 @@
             WebMail.Password = "brunothekid.1";
             WebMail.From = "thekidbruno@gmail.com";
 
-            WebMail.Send(Model.Email, "RSVP Notification", Model.Name + "is" + ((Model.WillAttend ?? false) ? "" : "not")
+            WebMail.Send(Model.Email, "RSVP Notification", Model.Name + " is " + ((Model.WillAttend ?? false) ? "" : "not")
                                                                     + "attending");
         }
         catch(Exception) { 
